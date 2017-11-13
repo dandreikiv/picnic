@@ -22,6 +22,13 @@ struct ProductCellModel {
 		return numberFormatter.string(from: NSNumber(floatLiteral: productPrice))
 	}
 	
+	var imageUrl: URL? {
+		guard let url = product.image else {
+			return nil
+		}
+		return URL(string: url)
+	}
+	
 	init(product: Product) {
 		self.product = product
 		numberFormatter = NumberFormatter()
