@@ -20,7 +20,21 @@ class PicnicTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+	
+	func testLocalJsonUrlBuilderReturnsUrlForProductListJson() {
+		let urlBuilder = LocalJSONUrlBuilder()
+		let url = urlBuilder.productListUrl()
+		XCTAssertNotNil(url)
+	}
+	
+	func testLocalJsonUrlBuilderReturnsUrlForProductDetails() {
+		let product = Product(productId: "1", name: "Pork", price: 100, image: nil)
+		
+		let urlBuilder = LocalJSONUrlBuilder()
+		let url = urlBuilder.detailsUrl(forProduct: product.productId)
+		XCTAssertNotNil(url)
+	}
+	
     func testRequestFactoryReturnsNonNillProductListUrl() {
 		let requestFactory = RequestFactory(urlBuilder: UrlBuilder())
 		let url = requestFactory.productListRequest()
@@ -32,7 +46,7 @@ class PicnicTests: XCTestCase {
 		let product = Product(productId: "1", name: "Pork", price: 100, image: nil)
 		
 		let requestFactory = RequestFactory(urlBuilder: UrlBuilder())
-		let url = requestFactory.productDetailsRequest(product)
+		let url = requestFactory.detailsRequest(of: product)
 		XCTAssertNotNil(url)
 	}
 }
