@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct ProductDetails {
+struct ProductDetails: Decodable {
 	var productId: String
 	var name: String
 	var price: Int
-	var image: String
-	var description: String
+	var image: String?
+	var description: String?
 }
