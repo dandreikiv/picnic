@@ -16,9 +16,9 @@ protocol ProductManagerProtocol {
 
 class ProductManager: ProductManagerProtocol {
 	
-	private let requestFactory: RequestFactory
+	private let requestFactory: RequestFactoryProtocol
 	
-	init(requestFactory: RequestFactory) {
+	init(requestFactory: RequestFactoryProtocol) {
 		self.requestFactory = requestFactory
 	}
 	
@@ -30,7 +30,8 @@ class ProductManager: ProductManagerProtocol {
 		}
 		
 		NetworkManager.perform(request) { (data, error) in
-			// Complete method and pass error to a completion handler,
+			
+			// Complete the method and pass error to a completion handler,
 			// in case the request returned an error.
 			guard error == nil else {
 				completion(nil, error)
@@ -38,23 +39,24 @@ class ProductManager: ProductManagerProtocol {
 			}
 			
 			// Return an empty list of products, in case the request
-			// returned neither error nor data.
+			// returned no data.
 			guard let jsonData = data else {
 				completion([], nil)
 				return
 			}
 			
 			// Return an empty list of products in case of JSON decoding was not successful.
-			guard let products = try? JSONDecoder().decode([Product].self, from: jsonData) else {
+			guard let productList = try? JSONDecoder().decode(ProductList.self, from: jsonData) else {
 				completion([], nil)
 				return 
 			}
 			
-			completion(products, nil)
+			completion(productList.products, nil)
 		}
 	}
 	
 	func retrieveDetails(of product: Product, completion: @escaping (ProductDetails?, Error?) -> Swift.Void) {
+		
 		guard let request = requestFactory.detailsRequest(of: product) else {
 			completion(nil, nil)
 			return
@@ -62,11 +64,15 @@ class ProductManager: ProductManagerProtocol {
 		
 		NetworkManager.perform(request) { (data, error) in
 			
+			// Complete the method and pass an error to a completion handler,
+			// in case the request returned an error.
 			guard error == nil else {
 				completion(nil, error)
 				return
 			}
 			
+			// Return nil, in case the request returned neither error nor data.
+			// returned no data.
 			guard let jsonData = data else {
 				completion(nil, nil)
 				return
