@@ -24,7 +24,7 @@ class RequestFactory {
 		return URLRequest(url: url)
 	}
 	
-	func productDetailsRequest(_ product: Product) -> URLRequest? {
+	func detailsRequest(of product: Product) -> URLRequest? {
 		guard let url = urlBuilder.detailsUrl(forProduct: product.productId) else {
 			return nil
 		}
