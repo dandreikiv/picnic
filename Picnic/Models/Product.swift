@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Product {
+struct Product: Decodable {
 	var productId: String
 	var name: String
 	var price: Int
 	var image: String?
+	
+	enum CodingKeys : String, CodingKey {
+		case productId = "product_id"
+		case name
+		case price
+		case image
+	}
 }
