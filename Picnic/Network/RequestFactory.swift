@@ -8,7 +8,12 @@
 
 import Foundation
 
-class RequestFactory {
+protocol RequestFactoryProtocol {
+	func productListRequest() -> URLRequest?
+	func detailsRequest(of product: Product) -> URLRequest?
+}
+
+class RequestFactory: RequestFactoryProtocol {
 	
 	private let urlBuilder: UrlBuilderProtocol
 	
