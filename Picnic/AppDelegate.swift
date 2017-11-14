@@ -17,11 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
+		configureImageCache()
+		
+		return true
+	}
+	
+	private func configureImageCache() {
 		let momoryCapacity: Int = 1024 * 1024 * 100
 		let diskCapacity: Int = 1024 * 1024 * 100
 		URLCache.shared = URLCache(memoryCapacity: momoryCapacity, diskCapacity: diskCapacity, diskPath: "cachepath")
-		
-		return true
 	}
 }
 
