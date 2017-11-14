@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,22 +26,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="175" height="174"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HsA-wB-uAm">
-                        <rect key="frame" x="0.0" y="0.0" width="175" height="122"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HsA-wB-uAm">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="132"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-1O-smk">
-                        <rect key="frame" x="0.0" y="150" width="175" height="24"/>
+                        <rect key="frame" x="0.0" y="152" width="175" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="XO1-sL-SDJ"/>
+                            <constraint firstAttribute="height" constant="18" id="XO1-sL-SDJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="zdp-qC-BO3">
-                        <rect key="frame" x="4" y="122" width="167" height="28"/>
+                        <rect key="frame" x="4" y="132" width="167" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="28" id="tbU-Ip-r9P"/>
+                            <constraint firstAttribute="height" constant="20" id="tbU-Ip-r9P"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
@@ -53,7 +52,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="HsA-wB-uAm" secondAttribute="trailing" id="0Hv-fd-94d"/>
                 <constraint firstItem="HsA-wB-uAm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5Uv-so-f7A"/>
-                <constraint firstAttribute="bottom" secondItem="OTo-1O-smk" secondAttribute="bottom" id="9GQ-rm-amo"/>
+                <constraint firstAttribute="bottom" secondItem="OTo-1O-smk" secondAttribute="bottom" constant="4" id="9GQ-rm-amo"/>
                 <constraint firstAttribute="trailing" secondItem="zdp-qC-BO3" secondAttribute="trailing" constant="4" id="KTD-7K-ken"/>
                 <constraint firstItem="zdp-qC-BO3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Rwj-Yd-D8l"/>
                 <constraint firstItem="HsA-wB-uAm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sbh-cX-Qgu"/>
