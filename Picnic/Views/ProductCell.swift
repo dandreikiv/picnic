@@ -18,14 +18,17 @@ class ProductCell: UICollectionViewCell {
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-		layer.borderWidth = 1
-		productImage.layer.borderWidth = 2
-		productImage.layer.borderColor = UIColor.green.cgColor
+		productImage.layer.borderWidth = 1
+		productImage.layer.borderColor = UIColor(white: 0.2, alpha: 0.4).cgColor
         // Initialization code
     }
 	
 	func configure(with model: ProductCellModel) {
 		productName.text = model.name
 		productPrice.text = model.price
+		
+		if let imageUrl = model.imageUrl {
+			productImage.load(image: imageUrl)
+		}
 	}
 }
