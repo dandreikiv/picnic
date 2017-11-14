@@ -14,4 +14,12 @@ struct ProductDetails: Decodable {
 	var price: Int
 	var image: String?
 	var description: String?
+	
+	enum CodingKeys : String, CodingKey {
+		case productId = "product_id"
+		case name
+		case price
+		case image
+		case description
+	}
 }
