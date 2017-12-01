@@ -9,5 +9,5 @@
 import Foundation
 
 struct ProductList: Decodable {
-	var products: [Product]
+	let products: [Product]
 }

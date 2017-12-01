@@ -9,11 +9,11 @@
 import Foundation
 
 struct ProductDetails: Decodable {
-	var productId: String
-	var name: String
-	var price: Int
-	var image: String?
-	var description: String?
+	let productId: String
+	let name: String
+	let price: Int
+	let image: String?
+	let description: String?
 	
 	enum CodingKeys : String, CodingKey {
 		case productId = "product_id"
